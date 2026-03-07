@@ -1,0 +1,1002 @@
+/* ==========================================================================
+   CSS Variables
+   ========================================================================== */
+:root {
+  --primary-navy: #080f1b;
+  --bg-dark-gradient: linear-gradient(100deg, #050a13 0%, #0a1324 45%, transparent 100%);
+  --bg-off-white: #fdfcf8;
+  --bg-card: #ffffff;
+  --accent-gold-light: #f5d78a;
+  --accent-gold-dark: #b8860b;
+  --accent-gradient: linear-gradient(to right, #d4af37, #f3e5ab);
+  --accent-gradient-hover: linear-gradient(to right, #f3e5ab, #d4af37);
+  --text-dark: #2c2c2c;
+  --text-light: #ffffff;
+  --text-gray: #555555;
+  --border-radius: 12px;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--bg-off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-family: var(--font-body);
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #333;
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: var(--accent-gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: var(--accent-gradient);
+  color: #333;
+  font-weight: 600;
+  padding: 0.6rem 1.8rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  position: fixed;
+  background-color: rgba(8, 15, 27, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 5%;
+  box-shadow: var(--shadow-md);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-gold-light);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  color: var(--accent-gold-light);
+}
+
+.hamburger {
+  display: none;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  background-image: url('Gemini_Generated_Image_z1if6oz1if6oz1if.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(100deg, rgba(5, 10, 19, 0.5) 0%, rgba(10, 19, 36, 0.5) 45%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--text-light);
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content .highlight {
+  color: var(--accent-gold-light);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  max-width: 450px;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   Booking Filters Section
+   ========================================================================== */
+.booking-filters {
+  padding: 2rem 0;
+  background-color: var(--bg-off-white);
+}
+
+.booking-filters .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Check In / Out / Rooms Bar */
+.booking-bar {
+  display: flex;
+  align-items: center;
+  background: #f8f9f8;
+  border-radius: 50px;
+  border: 1px solid #758a75;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+}
+
+.booking-input {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  gap: 1rem;
+  border-right: 1px solid #d0d5d0;
+  flex: 1;
+}
+
+.booking-input.no-border {
+  border-right: none;
+}
+
+.booking-input i {
+  color: #1b381b;
+  font-size: 1.2rem;
+}
+
+.input-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-details .label {
+  font-size: 0.8rem;
+  color: #1b381b;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.input-details .value-input {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1b381b;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  outline: none;
+  width: 100%;
+}
+
+.input-details .value-input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.booking-input {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Ensure placeholder looks same as value */
+.input-details .value-input::placeholder {
+  color: #1b381b;
+  opacity: 1;
+}
+
+.search-btn {
+  border-radius: 50px;
+  padding: 0.6rem 2rem;
+  margin-left: 10px;
+}
+
+/* Filter Bar below */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter-btn {
+  background: white;
+  border: 1px solid #758a75;
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #1b381b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  background: #f0f4f0;
+}
+
+.filter-btn.primary-filter {
+  padding: 0.6rem 1.5rem;
+}
+
+.filter-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #d0d5d0;
+  margin: 0 0.5rem;
+}
+
+/* ==========================================================================
+   Luxury Amidst Nature (Rooms)
+   ========================================================================== */
+.room-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.room-card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: none;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.room-card .card-img-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.room-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.room-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+}
+
+.room-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  font-family: var(--font-heading);
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.room-desc {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.room-amenities {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.amenity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.amenity i {
+  font-size: 1.5rem;
+  color: #c9ab73;
+  /* Gold color for icons */
+}
+
+.amenity span {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.price-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.room-price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0b1a2e;
+  /* Navy color */
+  font-family: var(--font-body);
+}
+
+.btn-gold {
+  background-color: #c9ab73;
+  color: white;
+  padding: 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-gold:hover {
+  background-color: #b3955b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(201, 171, 115, 0.4);
+}
+
+/* ==========================================================================
+   Moments of Peace and Devotion (Gallery)
+   ========================================================================== */
+.gallery-section {
+  overflow: hidden;
+  background-color: var(--bg-off-white);
+  padding-bottom: 5rem;
+}
+
+.scrolling-gallery {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  margin-top: 3rem;
+  white-space: nowrap;
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  animation: scrollGallery 40s linear infinite;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+.gallery-group {
+  display: flex;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+  /* Match the gap so the transition is seamless */
+}
+
+.gallery-group img {
+  width: 350px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.gallery-group img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes scrollGallery {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  background-color: var(--primary-navy);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 5rem 0 2rem;
+  border-top: 4px solid var(--accent-gold-dark);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-col h4 {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-links li,
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.social-links a,
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.social-links a:hover,
+.footer-links a:hover {
+  color: var(--accent-gold-light);
+  padding-left: 5px;
+}
+
+.footer-col p {
+  margin-bottom: 0.8rem;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newsletter-form input {
+  padding: 0.8rem;
+  border-radius: 4px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body);
+}
+
+.newsletter-form input:focus {
+  outline: 2px solid var(--accent-gold-light);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+.fade-up {
+  transform: translateY(50px);
+}
+
+.fade-left {
+  transform: translateX(-50px);
+}
+
+.fade-right {
+  transform: translateX(50px);
+}
+
+/* ==========================================================================
+   Inquiry Section
+   ========================================================================== */
+.inquiry-section {
+  background-color: var(--bg-white);
+}
+
+.inquiry-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.text-left {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+.inquiry-form-container {
+  background: var(--bg-off-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.inquiry-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.inquiry-form input,
+.inquiry-form textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: white;
+  transition: var(--transition);
+}
+
+.inquiry-form input:focus,
+.inquiry-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(201, 171, 115, 0.2);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Testimonials Marquee
+   ========================================================================== */
+.testimonials-section {
+  background-color: var(--bg-off-white);
+  overflow: hidden;
+  padding-bottom: 6rem;
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 2rem;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  padding: 2rem 0;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 2rem;
+  animation: scrollMarquee 30s linear infinite;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.testimonial-card {
+  width: 350px;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.testimonial-card:hover {
+  background: white;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.test-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--primary-navy);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.test-header h4 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.test-handle {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.testimonial-card p {
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+@keyframes scrollMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - 2rem));
+  }
+}
+
+/* ==========================================================================
+   About Temple Section
+   ========================================================================== */
+.about-temple {
+  background-color: var(--bg-white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.about-image-wrapper {
+  position: relative;
+  border-radius: 12px;
+}
+
+.about-main-img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  display: block;
+}
+
+.about-experience-badge {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: var(--accent-gold);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  border: 5px solid white;
+}
+
+.badge-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  line-height: 1;
+}
+
+.badge-text {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   Floating WhatsApp Widget
+   ========================================================================== */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 35px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebe57;
+  transform: translateY(-5px);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .room-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .inquiry-wrapper,
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+
+  .booking-bar {
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 0;
+  }
+
+  .booking-input {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #d0d5d0;
+    padding: 1rem;
+  }
+
+  .booking-input.no-border {
+    border-bottom: none;
+  }
+
+  .filter-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .room-card .card-img-wrapper {
+    width: 100%;
+  }
+
+  .room-card img {
+    height: 200px;
+    min-height: auto;
+  }
+
+  .room-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .btn-gold {
+    width: 100%;
+  }
+
+  .nav-links {
+    display: none;
+    /* simple mobile menu handler */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar .btn {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .room-cards {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
