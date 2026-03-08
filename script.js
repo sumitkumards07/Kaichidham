@@ -101,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Trigger initial reveal for elements already in viewport
     setTimeout(() => {
         revealElements.forEach(el => {
             const rect = el.getBoundingClientRect();
@@ -109,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('active');
             }
         });
-    }, 100);
+    }, 0);
 });
 
 // 4. Room Filtering Logic
