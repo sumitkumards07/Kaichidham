@@ -1143,8 +1143,31 @@ img {
   }
 
   .nav-links {
-    display: none;
-    /* simple mobile menu handler */
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding: 6rem 2rem;
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links a {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
   }
 
   .hamburger {
