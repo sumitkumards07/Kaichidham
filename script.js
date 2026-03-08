@@ -99,28 +99,53 @@ function filterRooms() {
 
 // 4. Room Filtering Logic based on Rooms
 function filterRooms() {
-    // Now it's a select dropdown with values "1", "2", "3", "4+"
-    const roomsValue = document.getElementById('guests').value;
-    const cards = document.querySelectorAll('.room-card');
+    const roomsSelect = document.getElementById('roomsInput');
+    const guestsSelect = document.getElementById('guestsInput');
 
-    let rooms = parseInt(roomsValue);
-    if (isNaN(rooms)) rooms = 1; // Default to 1 room
+    if (!roomsSelect || !guestsSelect) return;
+
+    let rooms = parseInt(roomsSelect.value) || 1;
+    let guests = parseInt(guestsSelect.value) || 1;
+
+    // Rule: Max 3 people per room. If they select more people than 3 * rooms, auto-add rooms.
+    const requiredRooms = Math.ceil(guests / 3);
+
+    if (rooms < requiredRooms) {
+        // Enforce rule by updating the UI dropdown automatically
+        rooms = requiredRooms;
+
+        // Cap the dropdown update at "4+" if it exceeds standard options
+        const newRoomValue = rooms > 4 ? "4+" : rooms.toString();
+
+        // Update DOM value to reflect the change visually
+        let optionExists = false;
+        for (let i = 0; i < roomsSelect.options.length; i++) {
+            if (roomsSelect.options[i].value === newRoomValue) {
+                roomsSelect.selectedIndex = i;
+                optionExists = true;
+                break;
+            }
+        }
+
+        // Flash the rooms input to draw attention to the auto-update
+        roomsSelect.parentElement.parentElement.style.animation = "pulse 0.5s ease";
+        setTimeout(() => {
+            roomsSelect.parentElement.parentElement.style.animation = "";
+        }, 500);
+    }
+
+    const cards = document.querySelectorAll('.room-card');
 
     cards.forEach(card => {
         const title = card.querySelector('h3').innerText;
         card.style.display = 'flex'; // Reset all to visible
 
-        // Filter Logic based on No. of Rooms:
-        // A single room like Deluxe or Twin is typically booked for 1 room needs.
-        // If a user selects 3 or 4+ rooms, they likely want the Dormitory or multiple smaller rooms. 
-        // We will hide the very smallest rooms if they require a massive booking (e.g. 4+ rooms) to focus them on group stays.
+        // Smaller rooms like Twin/Deluxe are typically optimized for 2-3 guests max.
+        // If a user is explicitly searching for massive groups (rooms >= 3), they often prefer dormitories or large family suites.
         if (rooms >= 3 && (title.includes('Deluxe') || title.includes('Twin'))) {
-            // Uncomment to hide smaller rooms for large groups, or just leave all visible.
+            // Uncomment to hide smaller rooms for large groups. leaving visible by default to show inventory.
             // card.style.display = 'none'; 
         }
-
-        // We can leave everything visible or add custom grouping logic here depending on the hotel's exact capacity.
-        // For now, we will just scroll to the options as any room type can theoretically be booked multiple times if available.
     });
 
     // Scroll to the results smoothly
@@ -130,13 +155,15 @@ function filterRooms() {
     }
 }
 
-// 5. Add event listener to guests input to filter on "Enter" or change
+// 5. Add event listeners to select inputs
 document.addEventListener('DOMContentLoaded', () => {
-    const guestsInputEl = document.getElementById('guests');
+    const roomsInputEl = document.getElementById('roomsInput');
+    const guestsInputEl = document.getElementById('guestsInput');
+
+    if (roomsInputEl) {
+        roomsInputEl.addEventListener('change', filterRooms);
+    }
     if (guestsInputEl) {
         guestsInputEl.addEventListener('change', filterRooms);
-        guestsInputEl.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') filterRooms();
-        });
     }
 });

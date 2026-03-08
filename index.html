@@ -136,17 +136,32 @@
                             <input type="date" id="checkout" class="value-input" required>
                         </div>
                     </div>
-                    <div class="booking-input no-border" onclick="document.getElementById('guests').focus()">
+                    <div class="booking-input" onclick="document.getElementById('roomsInput').focus()">
                         <i class="fas fa-bed"></i>
                         <div class="input-details">
-                            <label for="guests" class="label">No. of Rooms</label>
-                            <select id="guests" class="value-input"
+                            <label for="roomsInput" class="label">No. of Rooms</label>
+                            <select id="roomsInput" class="value-input"
                                 style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;"
                                 onchange="filterRooms()">
                                 <option value="1">1 Room</option>
                                 <option value="2">2 Rooms</option>
                                 <option value="3">3 Rooms</option>
                                 <option value="4+">4+ Rooms</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="booking-input no-border" onclick="document.getElementById('guestsInput').focus()">
+                        <i class="fas fa-user-friends"></i>
+                        <div class="input-details">
+                            <label for="guestsInput" class="label">No. of People</label>
+                            <select id="guestsInput" class="value-input"
+                                style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;"
+                                onchange="filterRooms()">
+                                <option value="1">1 Person</option>
+                                <option value="2" selected>2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5+">5+ People</option>
                             </select>
                         </div>
                     </div>
