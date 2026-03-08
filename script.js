@@ -145,10 +145,22 @@ function filterRooms() {
         card.style.display = 'flex';
     });
 
-    // Scroll to the results smoothly
-    const roomsSection = document.getElementById('rooms');
-    if (roomsSection) {
-        roomsSection.scrollIntoView({ behavior: 'smooth' });
+    // Scroll to the results smoothly, offset by navbar height
+    const searchToast = document.getElementById('searchToast');
+    if (searchToast) {
+        // Get the toast's position relative to the viewport + current scroll
+        const yOffset = -120; // Offset for the fixed navbar padding
+        const y = searchToast.getBoundingClientRect().top + window.scrollY + yOffset;
+
+        window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+        });
+    } else {
+        const roomsSection = document.getElementById('rooms');
+        if (roomsSection) {
+            roomsSection.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     // Animate each card in with a staggered delay
