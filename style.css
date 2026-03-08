@@ -1141,7 +1141,7 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: white;
-    border-radius: 4px;
+    border-radius: 0;
     border: 1px solid #d0d5d0;
     overflow: hidden;
     align-items: stretch;
@@ -1208,7 +1208,7 @@ img {
   .search-btn {
     width: 100%;
     margin: 0;
-    border-radius: 4px;
+    border-radius: 0;
     padding: 1rem;
     background-color: #e51a5c;
     border-color: #e51a5c;
