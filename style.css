@@ -467,6 +467,43 @@ img {
 }
 
 /* ==========================================================================
+   Search Result Toast
+   ========================================================================== */
+.search-toast {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 500;
+  margin: 0 auto 2rem auto;
+  box-shadow: 0 4px 15px rgba(36, 66, 36, 0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.search-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-toast i {
+  color: var(--accent-gold-light);
+  font-size: 1.2rem;
+}
+
+/* Center it properly */
+#rooms .container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
    Luxury Amidst Nature (Rooms)
    ========================================================================== */
 .room-cards {

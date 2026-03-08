@@ -110,6 +110,35 @@ function filterRooms() {
     const cards = document.querySelectorAll('.room-card');
 
     // First hide all cards, then reveal with staggered animation
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const title = card.querySelector('h3').innerText;
+        card.style.display = 'flex'; // Reset all to visible
+        visibleCount++; // Increment baseline count
+
+        // Smaller rooms like Twin/Deluxe are typically optimized for 2-3 guests max.
+        // If a user is explicitly searching for massive groups (rooms >= 3), they often prefer dormitories or large family suites.
+        if (rooms >= 3 && (title.includes('Deluxe') || title.includes('Twin'))) {
+            // Uncomment to hide smaller rooms for large groups. leaving visible by default to show inventory.
+            // card.style.display = 'none';
+            // visibleCount--;
+        }
+    });
+
+    // Handle the Search Results Toast Popup
+    const toast = document.getElementById('searchToast');
+    if (toast) {
+        toast.innerHTML = `<i class="fas fa-check-circle"></i> <span>Showing ${visibleCount} result${visibleCount !== 1 ? 's' : ''}</span>`;
+        toast.classList.add('show');
+
+        // Hide the toast after 4 seconds
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4000);
+    }
+
+    // First hide all cards, then reveal with staggered animation
     cards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
