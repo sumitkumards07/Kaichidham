@@ -1149,6 +1149,7 @@ img {
     border: 1px solid #d0d5d0;
     overflow: hidden;
     align-items: stretch;
+    width: 100%;
   }
 
   /* Visibility Toggles for Desktop/Mobile UIs */
