@@ -16,7 +16,7 @@
   --border-radius: 12px;
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
-  --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
   --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
@@ -559,7 +559,7 @@ img {
 .gallery-track {
   display: flex;
   width: max-content;
-  animation: scrollGallery 40s linear infinite;
+  animation: scrollGallery 20s linear infinite;
 }
 
 .gallery-track:hover {
@@ -672,7 +672,7 @@ img {
    ========================================================================== */
 .reveal {
   opacity: 0;
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+  transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
 }
 
 .reveal.active {
@@ -771,7 +771,7 @@ img {
   justify-content: space-around;
   min-width: 100%;
   gap: 2rem;
-  animation: scrollMarquee 30s linear infinite;
+  animation: scrollMarquee 15s linear infinite;
 }
 
 .marquee-container:hover .marquee-content {
