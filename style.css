@@ -1091,23 +1091,50 @@ img {
 
 
   .booking-bar {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border-radius: 12px;
     padding: 0;
   }
 
   .booking-input {
     width: 100%;
-    border-right: none;
+    border-right: 1px solid #d0d5d0;
     border-bottom: 1px solid #d0d5d0;
-    padding: 1rem;
+    padding: 0.8rem 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .booking-input:nth-child(2),
+  .booking-input:nth-child(4) {
+    border-right: none;
+  }
+
+  .booking-input:nth-child(3),
+  .booking-input:nth-child(4) {
+    border-bottom: none;
   }
 
   .booking-input.no-border {
     border-bottom: none;
   }
 
+  .input-details {
+    min-width: 0;
+  }
+
+  .label {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .value-input {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
   .search-btn {
+    grid-column: 1 / -1;
     width: 100%;
     margin: 0;
     border-radius: 0 0 12px 12px;
@@ -1115,9 +1142,9 @@ img {
   }
 
   .btn-counter {
-    width: 32px;
-    height: 32px;
-    font-size: 1.2rem;
+    width: 28px;
+    height: 28px;
+    font-size: 1.1rem;
   }
 
   .filter-bar {
