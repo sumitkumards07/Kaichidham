@@ -111,10 +111,17 @@
                         </div>
                     </div>
                     <div class="booking-input no-border" onclick="document.getElementById('guests').focus()">
-                        <i class="far fa-user"></i>
+                        <i class="fas fa-bed"></i>
                         <div class="input-details">
-                            <label for="guests" class="label">Rooms/Guests</label>
-                            <input type="text" id="guests" class="value-input" placeholder="1 Room, 2 Guests">
+                            <label for="guests" class="label">No. of Rooms</label>
+                            <select id="guests" class="value-input"
+                                style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;"
+                                onchange="filterRooms()">
+                                <option value="1">1 Room</option>
+                                <option value="2">2 Rooms</option>
+                                <option value="3">3 Rooms</option>
+                                <option value="4+">4+ Rooms</option>
+                            </select>
                         </div>
                     </div>
                     <button class="btn btn-primary search-btn" onclick="filterRooms()">Search</button>

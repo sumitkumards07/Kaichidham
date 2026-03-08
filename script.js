@@ -97,43 +97,30 @@ function filterRooms() {
     filterRooms();
 }
 
-// 4. Room Filtering Logic based on Guests
+// 4. Room Filtering Logic based on Rooms
 function filterRooms() {
-    const guestsInput = document.getElementById('guests').value.toLowerCase();
+    // Now it's a select dropdown with values "1", "2", "3", "4+"
+    const roomsValue = document.getElementById('guests').value;
     const cards = document.querySelectorAll('.room-card');
 
-    // Default to 2 guests if empty or parsing fails
-    let guests = 2;
-
-    if (guestsInput) {
-        // Try to match numbers like "3 guests", "3", "1 room 4 guests"
-        // Look for number before "guest" or just any stand-alone number if "guest" isn't present
-        const match = guestsInput.match(/(\d+)\s*guest/);
-        if (match) {
-            guests = parseInt(match[1]);
-        } else {
-            // fallback: find the last number in the string (assuming format "X rooms Y guests")
-            const nums = guestsInput.match(/\d+/g);
-            if (nums && nums.length > 0) {
-                guests = parseInt(nums[nums.length - 1]);
-            }
-        }
-    }
+    let rooms = parseInt(roomsValue);
+    if (isNaN(rooms)) rooms = 1; // Default to 1 room
 
     cards.forEach(card => {
         const title = card.querySelector('h3').innerText;
         card.style.display = 'flex'; // Reset all to visible
 
-        // Logic: 
-        // Deluxe & Twin: Max 3 guests
-        // Executive & Family: Max 4 guests
-        // Dormitory: Any size
-        if (guests > 3 && (title.includes('Deluxe') || title.includes('Twin'))) {
-            card.style.display = 'none';
+        // Filter Logic based on No. of Rooms:
+        // A single room like Deluxe or Twin is typically booked for 1 room needs.
+        // If a user selects 3 or 4+ rooms, they likely want the Dormitory or multiple smaller rooms. 
+        // We will hide the very smallest rooms if they require a massive booking (e.g. 4+ rooms) to focus them on group stays.
+        if (rooms >= 3 && (title.includes('Deluxe') || title.includes('Twin'))) {
+            // Uncomment to hide smaller rooms for large groups, or just leave all visible.
+            // card.style.display = 'none'; 
         }
-        if (guests > 4 && (title.includes('Executive') || title.includes('Family'))) {
-            card.style.display = 'none';
-        }
+
+        // We can leave everything visible or add custom grouping logic here depending on the hotel's exact capacity.
+        // For now, we will just scroll to the options as any room type can theoretically be booked multiple times if available.
     });
 
     // Scroll to the results smoothly
