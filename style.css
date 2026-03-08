@@ -287,6 +287,23 @@ img {
   border: 1px solid #758a75;
   padding: 0.5rem 1rem;
   justify-content: space-between;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.booking-bar.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 5%;
 }
 
 .booking-input {

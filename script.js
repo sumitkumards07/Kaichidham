@@ -10,6 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 1.5 Sticky Booking Bar Effect
+    const bookingBar = document.querySelector('.booking-bar');
+    const bookingFilters = document.querySelector('.booking-filters');
+
+    if (bookingBar && bookingFilters) {
+        window.addEventListener('scroll', () => {
+            const filtersTop = bookingFilters.offsetTop;
+            if (window.scrollY >= filtersTop - 10) {
+                bookingBar.classList.add('sticky');
+            } else {
+                bookingBar.classList.remove('sticky');
+            }
+        });
+    }
+
     // 2. Scroll Animation (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal');
 
