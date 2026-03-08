@@ -1092,7 +1092,8 @@ img {
   animation: pulseCall 2s infinite;
 }
 
-.call-float i {
+.call-float i,
+.btn-outline i {
   display: inline-block;
   transform: scaleX(-1);
 }
