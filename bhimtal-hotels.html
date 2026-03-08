@@ -113,7 +113,8 @@
                         </div>
                     </div>
 
-                    <div class="booking-row">
+                    <!-- Desktop Row -->
+                    <div class="booking-row desktop-input">
                         <div class="booking-input" onclick="document.getElementById('roomsInput').focus()">
                             <i class="fas fa-bed desktop-icon"></i>
                             <div class="input-details">
@@ -128,10 +129,7 @@
                                 </select>
                             </div>
                         </div>
-
-                        <!-- Desktop Guests Input -->
-                        <div class="booking-input desktop-input no-border"
-                            onclick="document.getElementById('guestsInput').focus()">
+                        <div class="booking-input no-border" onclick="document.getElementById('guestsInput').focus()">
                             <i class="fas fa-user-friends desktop-icon"></i>
                             <div class="input-details">
                                 <label for="guestsInput" class="label">Guests</label>
@@ -145,20 +143,44 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Mobile Room Type Input -->
-                        <div class="booking-input mobile-input no-border"
-                            onclick="document.getElementById('roomTypeInput').focus()">
+                    <!-- Mobile Row -->
+                    <div class="booking-row mobile-input">
+                        <div class="booking-input">
                             <div class="input-details">
-                                <label for="roomTypeInput" class="label">Room Type</label>
-                                <select id="roomTypeInput" class="value-input"
-                                    style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;"
-                                    onchange="filterRooms()">
-                                    <option value="All">All Types</option>
-                                    <option value="Deluxe">Deluxe</option>
-                                    <option value="Executive">Executive</option>
-                                    <option value="Family">Family</option>
-                                    <option value="Twin">Twin</option>
+                                <label class="label">Adults</label>
+                                <select id="adultsInput" class="value-input"
+                                    style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;">
+                                    <option value="1">1</option>
+                                    <option value="2" selected>2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="booking-input no-border">
+                            <div class="input-details">
+                                <label class="label">Children</label>
+                                <select id="childrenInput" class="value-input"
+                                    style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
                                 </select>
                             </div>
                         </div>
@@ -221,8 +243,7 @@
                 <!-- Card 4: Twin Sharing Room -->
                 <div class="room-card reveal fade-up" style="transition-delay: 90ms;">
                     <div class="card-img-wrapper">
-                        <img src="images/twin-room.jpg" alt="Twin Sharing Room near Shri Kainchi Dham Temple"
-                           >
+                        <img src="images/twin-room.jpg" alt="Twin Sharing Room near Shri Kainchi Dham Temple">
                     </div>
                     <div class="card-content">
                         <h3>Twin Sharing Room</h3>
