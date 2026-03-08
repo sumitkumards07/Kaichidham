@@ -1093,6 +1093,7 @@ img {
 }
 
 .call-float i {
+  display: inline-block;
   transform: scaleX(-1);
 }
 
@@ -1135,6 +1136,8 @@ img {
     padding: 0;
     background: transparent;
     box-shadow: none;
+    border-radius: 0;
+    border: none;
   }
 
   .booking-row {
