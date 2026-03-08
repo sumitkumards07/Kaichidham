@@ -130,29 +130,25 @@ function filterRooms() {
 // 4. Room Filtering Logic based on Rooms
 function filterRooms() {
     const roomsSelect = document.getElementById('roomsInput');
-    const guestsInput = document.getElementById('guestsInput');
-
-    if (!roomsSelect || !guestsInput) return;
-
-    let rooms = parseInt(roomsSelect.value) || 1;
-    let guests = parseInt(guestsInput.value) || 1;
+    const roomTypeSelect = document.getElementById('roomTypeInput');
+    let rooms = parseInt(roomsSelect ? roomsSelect.value : 1) || 1;
+    let selectedType = roomTypeSelect ? roomTypeSelect.value : "All";
 
     const cards = document.querySelectorAll('.room-card');
 
-    // First hide all cards, then reveal with staggered animation
     let visibleCount = 0;
 
     cards.forEach(card => {
         const title = card.querySelector('h3').innerText;
-        card.style.display = 'flex'; // Reset all to visible
-        visibleCount++; // Increment baseline count
 
-        // Smaller rooms like Twin/Deluxe are typically optimized for 2-3 guests max.
-        // If a user is explicitly searching for massive groups (rooms >= 3), they often prefer dormitories or large family suites.
-        if (rooms >= 3 && (title.includes('Deluxe') || title.includes('Twin'))) {
-            // Uncomment to hide smaller rooms for large groups. leaving visible by default to show inventory.
-            // card.style.display = 'none';
-            // visibleCount--;
+        // Check if the card matches the selected room type
+        let isTypeMatch = (selectedType === "All") || title.includes(selectedType);
+
+        if (isTypeMatch) {
+            card.style.display = 'flex';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
         }
     });
 
@@ -168,11 +164,12 @@ function filterRooms() {
         }, 4000);
     }
 
-    // First hide all cards, then reveal with staggered animation
+    // Reset animation for visible cards
     cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.display = 'flex';
+        if (card.style.display !== 'none') {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+        }
     });
 
     // Scroll to the results smoothly, offset by navbar height

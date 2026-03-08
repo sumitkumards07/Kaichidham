@@ -96,45 +96,47 @@
 
             <div class="booking-filters" style="background: transparent; padding: 2rem 0 4rem 0;">
                 <div class="booking-bar" style="max-width: 900px; margin: 0 auto;">
-                    <div class="booking-input" onclick="document.getElementById('checkin').showPicker()">
-                        <i class="far fa-calendar-alt"></i>
-                        <div class="input-details">
-                            <label for="checkin" class="label">Check In</label>
-                            <input type="date" id="checkin" class="value-input" required>
+                    <div class="booking-row">
+                        <div class="booking-input" onclick="document.getElementById('checkin').showPicker()">
+                            <div class="input-details">
+                                <label for="checkin" class="label">Check in</label>
+                                <input type="date" id="checkin" class="value-input" required>
+                            </div>
+                        </div>
+                        <div class="booking-input" onclick="document.getElementById('checkout').showPicker()">
+                            <div class="input-details">
+                                <label for="checkout" class="label">Check out</label>
+                                <input type="date" id="checkout" class="value-input" required>
+                            </div>
                         </div>
                     </div>
-                    <div class="booking-input" onclick="document.getElementById('checkout').showPicker()">
-                        <i class="far fa-calendar-alt"></i>
-                        <div class="input-details">
-                            <label for="checkout" class="label">Check Out</label>
-                            <input type="date" id="checkout" class="value-input" required>
+
+                    <div class="booking-row">
+                        <div class="booking-input" onclick="document.getElementById('roomsInput').focus()">
+                            <div class="input-details">
+                                <label for="roomsInput" class="label">Rooms</label>
+                                <select id="roomsInput" class="value-input"
+                                    style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;"
+                                    onchange="filterRooms()">
+                                    <option value="1">1 Room</option>
+                                    <option value="2">2 Rooms</option>
+                                    <option value="3">3 Rooms</option>
+                                    <option value="4+">4+ Rooms</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="booking-input" onclick="document.getElementById('roomsInput').focus()">
-                        <i class="fas fa-bed"></i>
-                        <div class="input-details">
-                            <label for="roomsInput" class="label">No. of Rooms</label>
-                            <select id="roomsInput" class="value-input"
-                                style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;"
-                                onchange="filterRooms()">
-                                <option value="1">1 Room</option>
-                                <option value="2">2 Rooms</option>
-                                <option value="3">3 Rooms</option>
-                                <option value="4+">4+ Rooms</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="booking-input no-border" onclick="document.getElementById('guestsInput').focus()">
-                        <i class="fas fa-user-friends"></i>
-                        <div class="input-details">
-                            <label for="guestsInput" class="label">Guests</label>
-                            <div class="guest-counter"
-                                style="display: flex; align-items: center; gap: 0.5rem; margin-top: 2px;">
-                                <button type="button" class="btn-counter" onclick="updateGuests(-1)">-</button>
-                                <input type="number" id="guestsInput" class="value-input" value="1" min="1" max="20"
-                                    style="width:2rem; text-align:center; outline:none; border:none; background:transparent; font-size:1rem; cursor:pointer;"
-                                    onchange="filterRooms()" readonly>
-                                <button type="button" class="btn-counter" onclick="updateGuests(1)">+</button>
+                        <div class="booking-input" onclick="document.getElementById('roomTypeInput').focus()">
+                            <div class="input-details">
+                                <label for="roomTypeInput" class="label">Room Type</label>
+                                <select id="roomTypeInput" class="value-input"
+                                    style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;"
+                                    onchange="filterRooms()">
+                                    <option value="All">All Types</option>
+                                    <option value="Deluxe">Deluxe</option>
+                                    <option value="Executive">Executive</option>
+                                    <option value="Family">Family</option>
+                                    <option value="Twin">Twin</option>
+                                </select>
                             </div>
                         </div>
                     </div>
