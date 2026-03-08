@@ -404,7 +404,6 @@ img {
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.2s ease;
   flex-shrink: 0;
   /* Prevent button from shrinking/disappearing */
 }
@@ -412,10 +411,6 @@ img {
 .btn-counter:hover {
   background: var(--primary-color);
   color: #fff;
-}
-
-.btn-counter:active {
-  transform: scale(0.9);
 }
 
 .booking-input {
