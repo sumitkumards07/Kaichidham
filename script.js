@@ -93,23 +93,39 @@ function filterRooms() {
         return;
     }
 
-    const cards = document.querySelectorAll('.room-card');
-    let guests = 2; // Default
+    // Call the filter rooms function here for the search button
+    filterRooms();
+}
 
-    // Attempt to parse guests if they typed a number like "4" or "4 guests"
-    const match = guestsInput.match(/(\d+)\s*guest/);
-    if (match) {
-        guests = parseInt(match[1]);
-    } else if (!isNaN(parseInt(guestsInput))) {
-        guests = parseInt(guestsInput);
+// 4. Room Filtering Logic based on Guests
+function filterRooms() {
+    const guestsInput = document.getElementById('guests').value.toLowerCase();
+    const cards = document.querySelectorAll('.room-card');
+
+    // Default to 2 guests if empty or parsing fails
+    let guests = 2;
+
+    if (guestsInput) {
+        // Try to match numbers like "3 guests", "3", "1 room 4 guests"
+        // Look for number before "guest" or just any stand-alone number if "guest" isn't present
+        const match = guestsInput.match(/(\d+)\s*guest/);
+        if (match) {
+            guests = parseInt(match[1]);
+        } else {
+            // fallback: find the last number in the string (assuming format "X rooms Y guests")
+            const nums = guestsInput.match(/\d+/g);
+            if (nums && nums.length > 0) {
+                guests = parseInt(nums[nums.length - 1]);
+            }
+        }
     }
 
     cards.forEach(card => {
         const title = card.querySelector('h3').innerText;
         card.style.display = 'flex'; // Reset all to visible
 
-        // Simple logic: 
-        // Deluxe & Twin: Max 2-3 guests
+        // Logic: 
+        // Deluxe & Twin: Max 3 guests
         // Executive & Family: Max 4 guests
         // Dormitory: Any size
         if (guests > 3 && (title.includes('Deluxe') || title.includes('Twin'))) {
@@ -121,5 +137,19 @@ function filterRooms() {
     });
 
     // Scroll to the results smoothly
-    document.getElementById('rooms').scrollIntoView({ behavior: 'smooth' });
+    const roomsSection = document.getElementById('rooms');
+    if (roomsSection) {
+        roomsSection.scrollIntoView({ behavior: 'smooth' });
+    }
 }
+
+// 5. Add event listener to guests input to filter on "Enter" or change
+document.addEventListener('DOMContentLoaded', () => {
+    const guestsInputEl = document.getElementById('guests');
+    if (guestsInputEl) {
+        guestsInputEl.addEventListener('change', filterRooms);
+        guestsInputEl.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') filterRooms();
+        });
+    }
+});
