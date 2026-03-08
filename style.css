@@ -324,6 +324,24 @@ img {
   border-right: none;
 }
 
+/* Visibility Toggles for Desktop/Mobile UIs */
+.booking-row {
+  display: contents;
+  /* Strip row wrapper on desktop so items flow into flex container */
+}
+
+.desktop-input {
+  display: flex !important;
+}
+
+.mobile-input {
+  display: none !important;
+}
+
+.desktop-icon {
+  display: inline-block;
+}
+
 .booking-input i {
   color: #1b381b;
   font-size: 1.2rem;
@@ -1125,6 +1143,19 @@ img {
     background: white;
     border-radius: 12px;
     border: 1px solid #d0d5d0;
+  }
+
+  /* Visibility Toggles for Desktop/Mobile UIs */
+  .desktop-input {
+    display: none !important;
+  }
+
+  .mobile-input {
+    display: flex !important;
+  }
+
+  .desktop-icon {
+    display: none !important;
   }
 
   .booking-input {
