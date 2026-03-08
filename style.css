@@ -912,6 +912,35 @@ img {
 }
 
 /* ==========================================================================
+   Floating Call Widget
+   ========================================================================== */
+.call-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 100px;
+  right: 30px;
+  background-color: var(--accent-gold-dark);
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 26px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.call-float:hover {
+  background-color: var(--accent-gold-light);
+  transform: translateY(-5px);
+  color: #fff;
+}
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 @media (max-width: 1024px) {
