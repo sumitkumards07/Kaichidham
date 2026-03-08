@@ -1068,6 +1068,19 @@ img {
     border-bottom: none;
   }
 
+  .search-btn {
+    width: 100%;
+    margin: 0;
+    border-radius: 0 0 12px 12px;
+    padding: 1rem;
+  }
+
+  .btn-counter {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+
   .filter-bar {
     flex-wrap: wrap;
     justify-content: center;
