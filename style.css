@@ -287,8 +287,10 @@ img {
   border: 1px solid #758a75;
   padding: 0.5rem 1rem;
   justify-content: space-between;
-  transition: all 0.3s ease;
-  z-index: 999;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+  z-index: 1001;
+  /* Above navbar (which is 1000) */
+  position: relative;
 }
 
 .booking-bar.sticky {
@@ -300,10 +302,11 @@ img {
   max-width: 100%;
   border-radius: 0;
   border: none;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 0.8rem 5%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  padding: 1rem 5%;
+  margin: 0;
 }
 
 .booking-input {

@@ -15,12 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingFilters = document.querySelector('.booking-filters');
 
     if (bookingBar && bookingFilters) {
+        // Get the initial top position of the booking filters section
+        const filtersTop = bookingFilters.offsetTop;
+
         window.addEventListener('scroll', () => {
-            const filtersTop = bookingFilters.offsetTop;
-            if (window.scrollY >= filtersTop - 10) {
+            if (window.scrollY >= filtersTop) {
                 bookingBar.classList.add('sticky');
+                // Add padding to prevent content jump when bar becomes fixed
+                bookingFilters.style.paddingTop = `${bookingBar.offsetHeight}px`;
             } else {
                 bookingBar.classList.remove('sticky');
+                bookingFilters.style.paddingTop = '2rem';
             }
         });
     }
