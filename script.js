@@ -100,39 +100,12 @@ function filterRooms() {
 // 4. Room Filtering Logic based on Rooms
 function filterRooms() {
     const roomsSelect = document.getElementById('roomsInput');
-    const guestsSelect = document.getElementById('guestsInput');
+    const guestsInput = document.getElementById('guestsInput');
 
-    if (!roomsSelect || !guestsSelect) return;
+    if (!roomsSelect || !guestsInput) return;
 
     let rooms = parseInt(roomsSelect.value) || 1;
-    let guests = parseInt(guestsSelect.value) || 1;
-
-    // Rule: Max 3 people per room. If they select more people than 3 * rooms, auto-add rooms.
-    const requiredRooms = Math.ceil(guests / 3);
-
-    if (rooms < requiredRooms) {
-        // Enforce rule by updating the UI dropdown automatically
-        rooms = requiredRooms;
-
-        // Cap the dropdown update at "4+" if it exceeds standard options
-        const newRoomValue = rooms > 4 ? "4+" : rooms.toString();
-
-        // Update DOM value to reflect the change visually
-        let optionExists = false;
-        for (let i = 0; i < roomsSelect.options.length; i++) {
-            if (roomsSelect.options[i].value === newRoomValue) {
-                roomsSelect.selectedIndex = i;
-                optionExists = true;
-                break;
-            }
-        }
-
-        // Flash the rooms input to draw attention to the auto-update
-        roomsSelect.parentElement.parentElement.style.animation = "pulse 0.5s ease";
-        setTimeout(() => {
-            roomsSelect.parentElement.parentElement.style.animation = "";
-        }, 500);
-    }
+    let guests = parseInt(guestsInput.value) || 1;
 
     const cards = document.querySelectorAll('.room-card');
 
@@ -155,15 +128,56 @@ function filterRooms() {
     }
 }
 
-// 5. Add event listeners to select inputs
+// 5. Custom +/- Guests Counter Logic
+function updateGuests(change) {
+    const guestsInput = document.getElementById('guestsInput');
+    const roomsSelect = document.getElementById('roomsInput');
+
+    if (!guestsInput || !roomsSelect) return;
+
+    let currentVal = parseInt(guestsInput.value) || 1;
+    let newVal = currentVal + change;
+
+    // Limits: Min 1, Max 20
+    if (newVal < 1) newVal = 1;
+    if (newVal > 20) newVal = 20;
+
+    guestsInput.value = newVal;
+
+    // Rule: Max 3 people per room. If they select more people than 3 * rooms, auto-add rooms.
+    let rooms = parseInt(roomsSelect.value) || 1;
+    const requiredRooms = Math.ceil(newVal / 3);
+
+    if (rooms < requiredRooms) {
+        // Enforce rule by updating the UI dropdown automatically
+        rooms = requiredRooms;
+
+        // Cap the dropdown update at "4+" if it exceeds standard options
+        const newRoomValue = rooms > 4 ? "4+" : rooms.toString();
+
+        // Update DOM value to reflect the change visually
+        for (let i = 0; i < roomsSelect.options.length; i++) {
+            if (roomsSelect.options[i].value === newRoomValue) {
+                roomsSelect.selectedIndex = i;
+                break;
+            }
+        }
+
+        // Flash the rooms input to draw attention to the auto-update
+        roomsSelect.parentElement.parentElement.style.animation = "pulse 0.5s ease";
+        setTimeout(() => {
+            roomsSelect.parentElement.parentElement.style.animation = "";
+        }, 500);
+    }
+
+    // Trigger standard filter
+    filterRooms();
+}
+
+// 6. Add event listeners
 document.addEventListener('DOMContentLoaded', () => {
     const roomsInputEl = document.getElementById('roomsInput');
-    const guestsInputEl = document.getElementById('guestsInput');
-
     if (roomsInputEl) {
         roomsInputEl.addEventListener('change', filterRooms);
-    }
-    if (guestsInputEl) {
-        guestsInputEl.addEventListener('change', filterRooms);
     }
 });

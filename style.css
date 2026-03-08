@@ -378,6 +378,31 @@ img {
   cursor: pointer;
 }
 
+.btn-counter {
+  background: rgba(36, 66, 36, 0.1);
+  color: var(--primary-color);
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-counter:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-counter:active {
+  transform: scale(0.9);
+}
+
 .booking-input {
   position: relative;
   cursor: pointer;

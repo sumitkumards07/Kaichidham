@@ -153,16 +153,15 @@
                     <div class="booking-input no-border" onclick="document.getElementById('guestsInput').focus()">
                         <i class="fas fa-user-friends"></i>
                         <div class="input-details">
-                            <label for="guestsInput" class="label">No. of People</label>
-                            <select id="guestsInput" class="value-input"
-                                style="outline:none; width:100%; border:none; background:transparent; font-size:1rem; cursor:pointer;"
-                                onchange="filterRooms()">
-                                <option value="1">1 Person</option>
-                                <option value="2" selected>2 People</option>
-                                <option value="3">3 People</option>
-                                <option value="4">4 People</option>
-                                <option value="5+">5+ People</option>
-                            </select>
+                            <label for="guestsInput" class="label">Guests</label>
+                            <div class="guest-counter"
+                                style="display: flex; align-items: center; gap: 0.5rem; margin-top: 2px;">
+                                <button type="button" class="btn-counter" onclick="updateGuests(-1)">-</button>
+                                <input type="number" id="guestsInput" class="value-input" value="1" min="1" max="20"
+                                    style="width:2rem; text-align:center; outline:none; border:none; background:transparent; font-size:1rem; cursor:pointer;"
+                                    onchange="filterRooms()" readonly>
+                                <button type="button" class="btn-counter" onclick="updateGuests(1)">+</button>
+                            </div>
                         </div>
                     </div>
                     <button class="btn btn-primary search-btn" onclick="filterRooms()">Search</button>
