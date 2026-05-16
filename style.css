@@ -1075,8 +1075,8 @@ img {
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 100px;
-  right: 30px;
+  bottom: 30px;
+  left: 30px;
   background-color: var(--accent-gold-dark);
   color: #FFF;
   border-radius: 50px;
