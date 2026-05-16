@@ -1296,3 +1296,19 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .whatsapp-float, .call-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+  }
+  .whatsapp-float {
+    right: 20px;
+    font-size: 30px;
+  }
+  .call-float {
+    left: 20px;
+    font-size: 22px;
+  }
+}
