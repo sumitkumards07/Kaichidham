@@ -1304,11 +1304,11 @@ img {
     bottom: 20px;
   }
   .whatsapp-float {
-    left: 20px;
+    left: 30px;
     font-size: 30px;
   }
   .call-float {
-    right: 20px;
+    right: 30px;
     font-size: 22px;
   }
 }
