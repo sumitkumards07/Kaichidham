@@ -1033,7 +1033,7 @@ img {
   width: 60px;
   height: 60px;
   bottom: 30px;
-  right: 50px;
+  left: 30px;
   background-color: #25d366;
   color: #FFF;
   border-radius: 50px;
@@ -1076,7 +1076,7 @@ img {
   width: 60px;
   height: 60px;
   bottom: 30px;
-  left: 30px;
+  right: 30px;
   background-color: var(--accent-gold-dark);
   color: #FFF;
   border-radius: 50px;
@@ -1304,11 +1304,11 @@ img {
     bottom: 20px;
   }
   .whatsapp-float {
-    right: 35px;
+    left: 20px;
     font-size: 30px;
   }
   .call-float {
-    left: 20px;
+    right: 20px;
     font-size: 22px;
   }
 }
