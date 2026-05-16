@@ -1076,7 +1076,8 @@ img {
   width: 60px;
   height: 60px;
   bottom: 100px;
-  right: 30px;
+  left: 30px;
+  right: auto;
   background-color: var(--accent-gold-dark);
   color: #FFF;
   border-radius: 50px;
